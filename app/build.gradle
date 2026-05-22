@@ -15,7 +15,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         
-        buildConfigField "String", "GEMINI_API_KEY", "\"${project.findProperty('GEMINI_API_KEY') ?: ''}\""
         buildConfigField "String", "OLLAMA_BASE_URL", "\"${project.findProperty('OLLAMA_BASE_URL') ?: 'http://10.0.2.2:11434/'}\""
         buildConfigField "String", "OLLAMA_MODEL", "\"${project.findProperty('OLLAMA_MODEL') ?: 'llama3.1:8b'}\""
     }
