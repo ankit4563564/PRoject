@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="60dp"
+    android:layout_height="80dp"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:id="@+id/day_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_day_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_day_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mon"
+            android:textColor="@color/gray"
+            android:textSize="12sp" />
+
+        <View
+            android:id="@+id/dot_indicator"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/circle_primary"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

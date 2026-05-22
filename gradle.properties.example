@@ -1,0 +1,16 @@
+# Example Gradle properties for Diabo project
+# API keys, endpoints, and other environment-specific values
+# ----------------------------------------------------------
+# Google ML Kit OCR does not require a key, but if you add other services, set them here.
+
+# Example placeholder values:
+MLKIT_API_KEY=YOUR_MLKIT_API_KEY
+OLLAMA_MODEL=gemma2:2b
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+BASE_URL=https://api.yourbackend.com
+
+# Gradle properties for signing (optional)
+# SIGNING_STORE_FILE=keystore.jks
+# SIGNING_STORE_PASSWORD=your_store_password
+# SIGNING_KEY_ALIAS=your_key_alias
+# SIGNING_KEY_PASSWORD=your_key_password

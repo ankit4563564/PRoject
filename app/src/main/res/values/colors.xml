@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <!-- Refined Palette -->
+    <color name="surfaceBackground">#F8F9FA</color>
+    <color name="surfaceCardLight">#FFFFFF</color>
+    <color name="surfaceCardDark">#1E1E1E</color>
+    <color name="onSurfaceHigh">#202124</color>
+    <color name="onSurfaceMedium">#5F6368</color>
+    <color name="textPrimary">#202124</color>
+    <color name="textSecondary">#5F6368</color>
+    <color name="divider">#DADCE0</color>
+    <color name="appTeal">#009688</color>
+
+    <color name="appPurple">#6200EE</color>
+    <color name="appPink">#FF4081</color>
+    <color name="appYellow">#FBBC04</color>
+    <color name="appOrange">#F09300</color>
+    <color name="appBlue">#1A73E8</color>
+    <color name="appGreen">#34A853</color>
+    <color name="appRed">#EA4335</color>
+
+    <color name="uploadBlue">#66B2F2</color>
+    <color name="uploadPurple">#9980F2</color>
+    <color name="pill_background_purple">#268C66F2</color>
+
+    <color name="medicalPurpleDeep">#402673</color>
+    <color name="medicalPurpleLight">#F0EBFA</color>
+    <color name="medicalPurpleMedium">#D1BFF0</color>
+    <color name="vibrantPurple">#A68CF2</color>
+
+    <!-- New colors for UI overhaul -->
+    <color name="diabetesHeaderPurple">#402673</color>
+    <color name="sectionHeaderPurple">#4A148C</color>
+    <color name="vitalGreen">#2E7D32</color>
+    <color name="vitalOrange">#E65100</color>
+    <color name="vitalRed">#D32F2F</color>
+    <color name="vitalBlue">#1565C0</color>
+    <color name="progressBlue">#4285F4</color>
+    <color name="progressOrange">#FF9800</color>
+    <color name="chipBorder">#E0E0E0</color>
+    <color name="cardBgLight">#F8F5FF</color>
+    <color name="pinkAccent">#FF4081</color>
+    <color name="pinkLight">#FFF0F0</color>
+    <color name="blueLight">#F0F4FF</color>
+    <color name="greenLight">#E8F5E9</color>
+    <color name="orangeLight">#FFF3E0</color>
+    <color name="navDark">#2D2D2D</color>
+    <color name="navDarkAlpha">#E62D2D2D</color>
+    <color name="grayText">#3C4043</color>
+    <color name="graySubtext">#70757A</color>
+    <color name="lightGrayBg">#F1F3F4</color>
+    <color name="securityBg">#E8F0FE</color>
+    <color name="purpleGradientStart">#B388FF</color>
+    <color name="purpleGradientEnd">#7C4DFF</color>
+    <color name="blueGradientStart">#42A5F5</color>
+    <color name="blueGradientEnd">#1E88E5</color>
+    <color name="pinkGradientStart">#FF80AB</color>
+    <color name="pinkGradientEnd">#FF4081</color>
+    <color name="orangeBadgeBg">#FFF3E0</color>
+    <color name="orangeBadgeText">#E65100</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#808080</color>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MediSync Diabo</string>
+    <string name="welcome_headline">Your Complete Health Companion</string>
+    <string name="onboarding_badge">ALL-IN-ONE DASHBOARD</string>
+    <string name="continue_text">Continue &#8594;</string>
+    <string name="hba1c">HbA1c</string>
+    <string name="hba1c_goal_value">&lt; 7.0%</string>
+</resources>

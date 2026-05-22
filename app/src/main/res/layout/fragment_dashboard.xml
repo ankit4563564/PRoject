@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surfaceBackground">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Top Header: User Profile, Greeting, Search -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                
+                <ImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/person_placeholder"
+                    android:background="@drawable/circle_outline_gray" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+                    
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:id="@+id/tv_greeting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hello, Adithya"
+                            android:textColor="@color/textPrimary"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tv_diabetes_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Type 1"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:background="@drawable/badge_outline"
+                            android:backgroundTint="@color/vibrantPurple"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="3dp"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_user_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Welcome to MediSync"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btn_search"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@android:drawable/ic_menu_search"
+                    app:tint="@color/textPrimary"
+                    android:padding="8dp"
+                    android:background="@drawable/circle_outline_gray" />
+            </LinearLayout>
+
+            <!-- Quick Vitals Strip -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginTop="14dp"
+                android:clipToPadding="false">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    
+                    <!-- HbA1c -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/badge_outline"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="10dp"
+                        android:layout_marginEnd="12dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <View android:layout_width="6dp" android:layout_height="6dp" android:background="@drawable/circle_primary" android:backgroundTint="@color/appPink"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="HbA1c" android:textSize="12sp" android:textColor="@color/textSecondary" android:layout_marginStart="6dp"/>
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="&lt; 7.0%" android:textColor="@color/textPrimary" android:textStyle="bold" android:textSize="15sp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                    
+                    <!-- Fasting -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/badge_outline"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="10dp"
+                        android:layout_marginEnd="12dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <View android:layout_width="6dp" android:layout_height="6dp" android:background="@drawable/circle_primary" android:backgroundTint="@color/vitalGreen"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Fasting" android:textSize="12sp" android:textColor="@color/textSecondary" android:layout_marginStart="6dp"/>
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="80-130" android:textColor="@color/textPrimary" android:textStyle="bold" android:textSize="15sp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <!-- Post-Meal -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/badge_outline"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="10dp"
+                        android:layout_marginEnd="12dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <View android:layout_width="6dp" android:layout_height="6dp" android:background="@drawable/circle_primary" android:backgroundTint="@color/progressBlue"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Post-Meal" android:textSize="12sp" android:textColor="@color/textSecondary" android:layout_marginStart="6dp"/>
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="&lt; 180" android:textColor="@color/textPrimary" android:textStyle="bold" android:textSize="15sp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+
+                    <!-- Weight -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/badge_outline"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="10dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <View android:layout_width="6dp" android:layout_height="6dp" android:background="@drawable/circle_primary" android:backgroundTint="@color/appOrange"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Weight" android:textSize="12sp" android:textColor="@color/textSecondary" android:layout_marginStart="6dp"/>
+                        </LinearLayout>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="80 kg" android:textColor="@color/textPrimary" android:textStyle="bold" android:textSize="15sp" android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_log_glucose"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_blue_gradient"
+                    android:text="Log Glucose"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_chat_history"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_outlined_purple"
+                    android:text="Chat History"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Mascot Banner -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+                
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="152dp"
+                    android:layout_marginTop="40dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/vibrantPurple">
+                    
+                    <!-- Background shapes / gradients if any can go here -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/purple_gradient" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="20dp"
+                        android:paddingEnd="120dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Health Overview"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Start your Journey!"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:layout_marginTop="4dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Based on your recent test results"
+                            android:textColor="#CCFFFFFF"
+                            android:textSize="12sp"
+                            android:layout_marginTop="24dp" />
+                        <!-- Avatar overlap group -->
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/health_overview_person"
+                            android:scaleType="fitStart"
+                            android:layout_marginTop="12dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                
+                <!-- The mascot overlaps the top of the card -->
+                <ImageView
+                    android:layout_width="176dp"
+                    android:layout_height="216dp"
+                    android:src="@drawable/mascot_clipboard"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="0dp"
+                    android:translationY="10dp" />
+            </FrameLayout>
+
+            <!-- Diabetes Vitals Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="24dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Diabetes Vitals"
+                        android:textColor="@color/diabetesHeaderPurple"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Type 1 - Personalized"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="13sp"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_see_logs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See Logs >"
+                    android:textColor="@color/vibrantPurple"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:padding="8dp" />
+            </LinearLayout>
+
+            <!-- HbA1c Highlight Card with Dashed border -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/dashed_border_card"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp">
+
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/circle_bg_purple_light"
+                    android:foreground="@drawable/ic_hba1c"
+                    android:foregroundTint="@color/grayText"
+                    android:foregroundGravity="center" /> <!-- Or src inside an ImageView -->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HbA1c"
+                        android:textColor="@color/textSecondary"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_hba1c_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No data yet"
+                        android:textColor="@color/graySubtext"
+                        android:textSize="14sp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Glucose Monitoring Grid -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <!-- Fasting Glucose -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/circle_bg_blue_light" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Fasting Glucose"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="13sp"
+                                android:layout_marginStart="8dp" />
+                            <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/circle_primary" android:backgroundTint="@color/appGreen" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="16dp">
+                            <TextView
+                                android:id="@+id/tv_fasting_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="112"
+                                android:textColor="@color/diabetesHeaderPurple"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" mg/dL"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_fasting_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Normal"
+                            android:textColor="@color/appGreen"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp" />
+
+                        <ProgressBar
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@android:drawable/progress_horizontal"
+                            android:max="100"
+                            android:progress="60"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Post-Meal Glucose -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/circle_bg_purple_light" />
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Post-Meal Gluco..."
+                                android:textColor="@color/textSecondary"
+                                android:textSize="13sp"
+                                android:layout_marginStart="8dp"
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+                            <View android:layout_width="8dp" android:layout_height="8dp" android:background="@drawable/circle_primary" android:backgroundTint="@color/appGreen" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="16dp">
+                            <TextView
+                                android:id="@+id/tv_postmeal_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="111"
+                                android:textColor="@color/diabetesHeaderPurple"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" mg/dL"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_postmeal_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Normal"
+                            android:textColor="@color/appGreen"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp" />
+
+                        <ProgressBar
+                            android:layout_width="match_parent"
+                            android:layout_height="4dp"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:progressDrawable="@android:drawable/progress_horizontal"
+                            android:max="100"
+                            android:progress="60"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Cardiovascular Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cardiovascular &amp; Body"
+                android:textColor="@color/diabetesHeaderPurple"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="28dp" />
+
+            <!-- Row 1: Blood Pressure & Weight -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <!-- Blood Pressure -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/circle_white_alpha_15" android:foreground="@drawable/ic_blood_pressure" android:foregroundTint="@color/appPink" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Blood Pressure"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="13sp"
+                            android:layout_marginTop="16dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+                            <TextView
+                                android:id="@+id/tv_bp_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="120"
+                                android:textColor="@color/diabetesHeaderPurple"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" mmHg"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_bp_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="High"
+                            android:textColor="@color/vitalRed"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Weight -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/circle_white_alpha_15" android:foreground="@drawable/ic_weight" android:foregroundTint="@color/appGreen" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Weight"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="13sp"
+                            android:layout_marginTop="16dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="8dp">
+                            <TextView
+                                android:id="@+id/tv_weight_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="60"
+                                android:textColor="@color/diabetesHeaderPurple"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" kg"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_weight_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Normal"
+                            android:textColor="@color/appGreen"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Row 2: BMI -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <View android:layout_width="40dp" android:layout_height="40dp" android:background="@drawable/circle_white_alpha_15" android:foreground="@drawable/ic_bmi" android:foregroundTint="@color/appOrange" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Body Mass Index"
+                            android:textColor="@color/textSecondary"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp">
+                            <TextView
+                                android:id="@+id/tv_bmi_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="26.7"
+                                android:textColor="@color/diabetesHeaderPurple"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" kg/m2"
+                                android:textColor="@color/textSecondary"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_bmi_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Overweight"
+                        android:textColor="@color/appOrange"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/badge_overweight"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Active Medications"
+                    android:textColor="@color/diabetesHeaderPurple"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/btn_add_medication"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:background="@drawable/circle_primary_alpha_15"
+                    android:padding="4dp"
+                    android:src="@android:drawable/ic_input_add"
+                    app:tint="@color/appGreen" />
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_empty_active_medications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="22dp">
+
+                    <View
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:background="@drawable/circle_bg_purple_light"
+                        android:foreground="@drawable/ic_medical_bag"
+                        android:foregroundGravity="center"
+                        android:foregroundTint="@color/vibrantPurple" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="No Medications Detected"
+                        android:textColor="@color/diabetesHeaderPurple"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="No medications were found in your uploaded reports. Tap + to add medications manually."
+                        android:textColor="@color/graySubtext"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_active_medication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#F4EEFF"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <View
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/circle_bg_purple_light"
+                        android:foreground="@drawable/ic_medical_bag"
+                        android:foregroundGravity="center"
+                        android:foregroundTint="@color/vibrantPurple" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_active_med_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="XYZ"
+                            android:textColor="@color/diabetesHeaderPurple"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_active_med_dosage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="500mg - 2"
+                            android:textColor="@color/graySubtext" />
+
+                        <TextView
+                            android:id="@+id/tv_active_med_frequency"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="1 time a day"
+                            android:textColor="@color/graySubtext"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Past Medications"
+                android:textColor="@color/diabetesHeaderPurple"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="20dp"
+                    android:text="No past medications"
+                    android:textColor="@color/graySubtext" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+

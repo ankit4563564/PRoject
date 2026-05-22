@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/onboardingFragment">
+
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.medisync.diabo.fragment.OnboardingFragment"
+        android:label="Onboarding">
+        <action
+            android:id="@+id/action_onboarding_to_auth"
+            app:destination="@id/authenticationFragment"
+            app:enterAnim="@anim/slide_in_right_soft"
+            app:exitAnim="@anim/slide_out_left_soft"
+            app:popEnterAnim="@anim/slide_in_left_soft"
+            app:popExitAnim="@anim/slide_out_right_soft" />
+        <action
+            android:id="@+id/action_onboarding_to_main"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right_soft"
+            app:exitAnim="@anim/slide_out_left_soft"
+            app:popEnterAnim="@anim/slide_in_left_soft"
+            app:popExitAnim="@anim/slide_out_right_soft" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/authenticationFragment"
+        android:name="com.medisync.diabo.fragment.AuthenticationFragment"
+        android:label="Login">
+        <action
+            android:id="@+id/action_auth_to_setup"
+            app:destination="@id/setupFragment"
+            app:enterAnim="@anim/slide_in_right_soft"
+            app:exitAnim="@anim/slide_out_left_soft"
+            app:popEnterAnim="@anim/slide_in_left_soft"
+            app:popExitAnim="@anim/slide_out_right_soft" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="com.medisync.diabo.fragment.SetupFragment"
+        android:label="Setup">
+        <action
+            android:id="@+id/action_setup_to_welcome"
+            app:destination="@id/welcomeSplashFragment"
+            app:enterAnim="@anim/slide_in_right_soft"
+            app:exitAnim="@anim/slide_out_left_soft"
+            app:popEnterAnim="@anim/slide_in_left_soft"
+            app:popExitAnim="@anim/slide_out_right_soft" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/welcomeSplashFragment"
+        android:name="com.medisync.diabo.fragment.WelcomeSplashFragment"
+        android:label="Welcome">
+        <action
+            android:id="@+id/action_welcome_to_main"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right_soft"
+            app:exitAnim="@anim/slide_out_left_soft"
+            app:popEnterAnim="@anim/slide_in_left_soft"
+            app:popExitAnim="@anim/slide_out_right_soft" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.medisync.diabo.fragment.MainFragment"
+        android:label="Main" />
+
+</navigation>
